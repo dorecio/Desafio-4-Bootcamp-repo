@@ -1,0 +1,139 @@
+* {
+box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    display:flex;
+    flex-direction:column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background: linear-gradient(0deg, #B2CF72 0%,#eef0eb 63%);
+}
+
+.main-tittle {
+    text-align: center;
+    font-size: 4rem;
+    
+}
+
+.container {
+    background: radial-gradient(circle,#969795  0%,#273448  100% );
+    border: 0.1rem solid #f0f2f5;
+    border-radius: 2rem;
+    margin :auto;
+    padding: 3rem;
+    text-align: center;
+}
+
+button {
+    background: radial-gradient(circle,  #eef0eb 0%,#c0d494 100%);
+        border-radius: 2rem;
+        color: #13293d;
+        cursor: pointer;
+        font-size: 1.5rem;
+        letter-spacing: 0.12rem;
+        line-height: 16px;
+        max-width: 255px;
+        padding: 2rem 3rem;
+        text-align: center;
+        margin-top: 0.7rem;
+}
+
+header {
+    background-color : #273448;
+    color :#f0f2f5;
+    padding: 5rem;
+    text-align: center;
+  /*  border-bottom: 30px #c0d494;*/
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+section {
+    flex: 0 auto;
+    padding: 0.5rem;
+    margin-top: 5rem;
+    background-color:#81837e;
+    border-radius: 1rem;
+}
+
+section p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+}
+section h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+}
+
+.font-timer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5rem ;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 504px) {
+    header {
+      padding: 2rem;
+    }
+    .main-tittle {
+      font-size: 2rem;
+    }
+    main {
+        display: block;
+    }
+    section {
+        margin-top: 0.5rem;
+    }
+    section p {
+            font-size: 1.5em;
+    }
+    .result,
+    .box-timer,
+    h3 {
+         padding: 1.5rem;
+    }
+    .box-timer {
+        height: 10rem;
+    }
+    .box-timer-text {
+        display: flex;
+    }
+    .font-timer {
+      padding: 1rem;
+      font-size: 3.5rem;
+    }
+    h3 {
+      font-size: 1.5rem;  
+    }
+}
+
+@media screen and (max-width:768px) {
+  header {
+    padding: 2rem;
+  }
+  .main-tittle {
+    font-size: 2rem;
+  }
+  main{
+    display: block;
+  }
+  section {
+    margin-top: 0.1rem;
+  }
+  .box-timer {
+     height: 10rem;
+  }
+  .font-timer {
+    font-size: 3.5rem;
+  }
+}
+
