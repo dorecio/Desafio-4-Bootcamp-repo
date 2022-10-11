@@ -14,30 +14,43 @@ var questionsArray = ["Commonly used data types DO Not included : ",
     "String values must be enclosed within ____________ when being assigned to variables.",
     "A very useful tool used during development and debugging for printing content to the debugger is : "];
 var correctAnswer = [2, 2, 3, 0, 3];
-
+var localStorageArray = [];
+/* Guarda datos del estudiante en un arreglo */
 function guardar(initials) {
-    localStorage.setItem = ("initials","score");
+    console.log("GUARDAR" + initials);
+    let item = {
+        initialsName: initials,
+        puntaje: score
+    };
+    localStorageArray.push(item);
+    return (item);
 }
+/* guarda elarreglo de estudiantes en localStorage*/
+function putInLocalStorage(){
+    localStorage.setItem("item", JSON.stringify(localStorageArray));
+}
+/* Desplegar LocalStorage en pantalla */
+function storage() { 
+    opcionesContainer.innerHTML = '';
+    localStorageArray = JSON.parse(localStorage.getItem('item'));
+    if (localStorageArray === null) {
+        localStorageArray = [];
+    } else {
+        for (var i = 0; i < localStorageArray.length; i++) {
+            var lista = localStorageArray[i];
 
-function storage() { /* Desplegar LocalStorage en pantalla */
-    var indice;
-    var valor;
-    var num = localStorage.length;
-    console.log(localStorage.length);
-    var lista = document.createElement("ul");
-    lista.length = num;
-    opcionesContainer.appendChild(lista);
-    for (var a = 0; a < num; a++) {
-        lista[a] = document.createElement("li");
-        lista.appendChild(lista[a]);
-        console.log("STORAGE");
-    }
-    for (var i = 0; i < num; i++) {
-        indice = localStorage.key(i);
-        valor = localStorage.getItem(clave);
-        lista.textContent += "<li>" + indice + " : " + valor + "<li>";
+            var li = document.createElement("li");
+            li.textContent = lista;
+            li.setAttribute("data-index", i);
+
+           
+
+            li.appendChild(opcionesContainer);
+          
+        }
     }
 }
+ /*Despliega preguntas y opciones de respuestas */ 
 
 function optionsButtons(j) {
     var optionQuestCero = ["strings", "booleans", "alerts", "numbers"];
@@ -112,12 +125,13 @@ function optionsButtons(j) {
         }        
     }        
     
-}      
+} 
+/*Funcion que cierra el custionario y pide datos para almacenar*/     
 function termina() {
-    if (numuqest !== 0) {
+   if (numuqest !== 0) {
         for (var i = 0; i < 4; i++) {
             buttonsArray[i].parentNode.removeChild(buttonsArray[i]);
-        }
+        } 
         timer.textContent = "All done!";
         questionLine1.textContent = "Your final score is : " + score;
         questionLine2.textContent = "Enter initials : ";
@@ -133,8 +147,10 @@ function termina() {
             event.preventDefault();
             var element = event.target;
             if (element == submit) {
-                guardar(initials.textContent);
-                console.log("INICIALES . TEXT==========>  " + initials.textContent);
+                var nombre = initials.value.trim();
+                console.log("NOMBRE  =======> "+ nombre);
+                guardar(nombre);
+                putInLocalStorage();
                 initials.parentNode.removeChild(initials);
                 submit.parentNode.removeChild(submit);
                 questionLine2.textContent = "";
@@ -143,38 +159,33 @@ function termina() {
         });
     }
 }    
-
+/* Despliega estudiantes y sus puntajes */
 function highScores() {
     questionLine1.textContent = "High scores";
-    storage();
+    storage(); 
 
 }
 
 var secondsLeft = 75;
+/* Cuenta el tiempo de la actividad */
 function setTime() {
-    // Sets interval in variable
     var timerInterval = setInterval(function () {
-        secondsLeft--;
-        timer.textContent = secondsLeft;
-       
-        if (secondsLeft === 0 || numuqest == questionsArray.length) {
-            // Stops execution of action at set interval
-            clearInterval(timerInterval);
-            // Calls function to create and append image
-            if (secondsLeft === 0) {
-                timer.textContent = "Time out!";
-            }
-            if (numuqest == questionsArray.length) {
-                questionLine2.textContent = "Enter initials : ";
-            }
-            
-            termina();
-            highScores();
-        }
-     }, 1000);
+      secondsLeft--;
+      timer.textContent = secondsLeft;
+      if (secondsLeft === 0 || numuqest == questionsArray.length) {
+         clearInterval(timerInterval);
+         if (secondsLeft === 0) {
+           timer.textContent = "Time out!";
+         }
+         if (numuqest == questionsArray.length) {
+            questionLine2.textContent = "Enter initials : ";
+         }
+      }
+    }, 1000);
 }
 
 var numuqest = 0;
+/* Inicia el cuestionario */
 function startQuestionary() {
     setTime();
     questionLine2.textContent = "";
