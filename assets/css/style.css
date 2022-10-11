@@ -1,7 +1,7 @@
 * {
 box-sizing: border-box;
 }
-
+/* se establecen formatos de lbody */
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
@@ -17,7 +17,7 @@ body {
     font-size: 4rem;
     
 }
-
+/* Formato del contenedor */
 .container {
     background: radial-gradient(circle,#969795  0%,#273448  100% );
     border: 0.1rem solid #f0f2f5;
@@ -26,7 +26,7 @@ body {
     padding: 3rem;
     text-align: center;
 }
-
+/* Formato de botones */
 button {
     background: radial-gradient(circle,  #eef0eb 0%,#c0d494 100%);
         border-radius: 2rem;
@@ -48,7 +48,7 @@ header {
     text-align: center;
   /*  border-bottom: 30px #c0d494;*/
 }
-
+/* Formato de main y sus secciones */
 main {
     display: flex;
     flex-wrap: wrap;
@@ -78,7 +78,7 @@ section h1 {
     text-align: center;
 }
 
-
+/* Media queries para hacerlo responsivo */
 
 @media screen and (max-width: 504px) {
     header {
