@@ -6,9 +6,10 @@ Este proyecto fué ralizado con la finalidad de aprender el uso de objeto window
 No se proporciona ningún código inicial, por tanto se parte de cero y se hace el código para lograr que esta aplicación sirva como entrenamiento intensivo para algún estudiante de código, midiendo su progreso en comparación con sus compañeros.
 
 ## Enlace a la aplicación
-
+https://dorecio.github.io/Desafio-4-Bootcamp-repo/
 
 ## Enlace al repositorio
+https://github.com/dorecio/Desafio-4-Bootcamp-repo
 
 ## Historia del usuario
 COMO UN estudiante del entrenamiento intensivo en codificación
